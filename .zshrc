@@ -8,21 +8,20 @@ fi
 if [[ -e /usr/share/zsh/manjaro-zsh-prompt ]]; then
   source /usr/share/zsh/manjaro-zsh-prompt
 fi
-PS1='%F{blue}%~ %(?.%F{green}.%F{red})>%f '
+PS1='%n@%m %F{blue}%~ %(?.%F{green}.%F{red})>%f '
 #PS1="%n@%m %~ >"
 RPROMPT='%F{8}⏱ %*%f'
 
 #golang
-if [[ $(go env GOPATH)/bin/air ]]; then 
-	alias air='$(go env GOPATH)/bin/air'
-fi
+alias air='$(go env GOPATH)/bin/air'
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$(go env GOPATH)/bin
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias ls='ls --color=auto'
+alias ll='ls -alF --color=auto'
+alias la='ls -A --color=auto'
+alias l='ls -CF --color=auto'
 
 # fun map
 alias worldmap='telnet mapscii.me'
@@ -36,6 +35,7 @@ alias vi="nvim"
 alias vimdiff='nvim -d'
 export EDITOR=nvim
 
+#Node Stuff
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
