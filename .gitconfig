@@ -1,3 +1,5 @@
 [user]
 	email = patrick@patrickkoulalis.com
-	name = Patrick Koulalis
+	name = phkn2
+[init]
+	defaultBranch = main
