@@ -20,11 +20,12 @@ set $term foot
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu rofi -show drun
+default_border pixel
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/patrick/Pictures/futuristic-cityscape-3840x2160-v0-d4c04h566psd1.jpg fill
+# output * bg /home/patrick/Pictures/futuristic-cityscape-3840x2160-v0-d4c04h566psd1.jpg fill
 #
 # Example configuration:
 #
@@ -61,12 +62,13 @@ output * bg /home/patrick/Pictures/futuristic-cityscape-3840x2160-v0-d4c04h566ps
 
 	input "type:pointer" accel_profile flat
 
-	input "1739:52781:MSFT0004:00_06CB:CE2D_Touchpad" {
+	input "type:touchpad" {
 		dwt enabled
 		tap enabled
 		natural_scroll enabled
 		middle_emulation enabled
 	}
+
 
 ### Key bindings
 #
@@ -183,9 +185,15 @@ output * bg /home/patrick/Pictures/futuristic-cityscape-3840x2160-v0-d4c04h566ps
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
 
-    bindsym XF86MonBrightnessDown exec xbacklight -dec 1
-    bindsym XF86MonBrightnessUp exec xbacklight -inc 1
+    # bindsym XF86MonBrightnessDown exec xbacklight -dec 1
+    # bindsym XF86MonBrightnessUp exec xbacklight -inc 1
 
+    bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
+    bindsym XF86MonBrightnessUp exec brightnessctl s +10%
+
+    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 #
 # Resizing containers:

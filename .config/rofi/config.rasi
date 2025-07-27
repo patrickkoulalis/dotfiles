@@ -1,4 +1,9 @@
 
 //@theme "/usr/share/rofi/themes/Adapta-Nokto.rasi"
+configuration {
+ modi: "window,drun,ssh,combi,run";
+ font: "hack 10";
+ combi-modi: "window,drun,ssh,run";
+ }
 
 @theme "/usr/share/rofi/themes/android_notification.rasi"
