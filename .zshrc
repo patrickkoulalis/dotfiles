@@ -1,13 +1,5 @@
 # Use powerline
 USE_POWERLINE="false"
-# Source manjaro-zsh-configuration
-if [[ -e /usr/share/zsh/manjaro-zsh-config ]]; then
-  source /usr/share/zsh/manjaro-zsh-config
-fi
-#Use manjaro zsh prompt
-if [[ -e /usr/share/zsh/manjaro-zsh-prompt ]]; then
-  source /usr/share/zsh/manjaro-zsh-prompt
-fi
 PS1='%n@%m %F{blue}%~ %(?.%F{green}.%F{red})>%f '
 #PS1="%n@%m %~ >"
 RPROMPT='%F{8}⏱ %*%f'
@@ -15,7 +7,9 @@ RPROMPT='%F{8}⏱ %*%f'
 #golang
 alias air='$(go env GOPATH)/bin/air'
 export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$(go env GOPATH)/bin
+# export PATH=$PATH:$(go env GOPATH)/bin
+#
+export PATH=$PATH:~/scripts
 
 # some more ls aliases
 alias ls='ls --color=auto'
@@ -39,5 +33,3 @@ export EDITOR=nvim
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-fastfetch
